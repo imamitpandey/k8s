@@ -1,8 +1,0 @@
-apiversion:v1
-kind:pod
-metadata:
- Name :Webserver
-Spec:
- Containers:
-  -name:web
-  image:ngnex:alpine
