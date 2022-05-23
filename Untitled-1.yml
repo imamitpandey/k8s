@@ -1,0 +1,31 @@
+apiVersion: extension/v1beta1
+kind: Deployment
+metadata:
+  name: nginx-boot-exa
+spec:
+  replicas: 4
+  template:
+    metadata:
+      label:
+        app: nginx-boot-exa
+    spec:
+      containers:
+        - name: nginx-boot-exa
+          image: nginx:1.16-alpine:v1
+          ports:
+            -containerport: 8080
+---
+apiversion: v1
+kind: service
+metadata:
+  name: nginx-boot-exa
+  label:
+    name: nginx-boot-exa
+spec:
+  ports:
+    - port: 8080
+      targetport: 8080
+      protocol: TCP
+Selectors:
+  app: nginx-boot-exa
+  type: LoadBalancer
